@@ -10,13 +10,37 @@ $('[data-count="second"]').on('click', ()=> {
 $('button').eq(2).on('click', ()=> {
     $('.w-500').fadeToggle(800);
 });
-$('.wrap').html(
-    `<div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton">Dropdown button</button>
-        <div class="dropdown-menu" data-toggle-id='dropdownMenuButton'>
-            <a href="#" class="dropdown-item">active #1</a>
-            <a href="#" class="dropdown-item">active #2</a>
-            <a href="#" class="dropdown-item">active #3</a>
-        </div>
-    </div>  `
-);
+$('#trigger').click(()=> {
+    $('#trigger').createModal({
+        text: {
+            title: 'Modal title',
+            body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem unde nisi, cum dolorem culpa aperiam dolor animi aut impedit soluta amet totam, veniam nulla accusamus quae, possimus ullam sit aliquam.'
+        },
+        btns: {
+            count: 3,
+            settings: [
+                [
+                    'Close',
+                    ['btn-danger', 'mr-10'],
+                    true
+                ],
+                [
+                    'Save changes',
+                    ['btn-success'],
+                    false,
+                    () => {
+                        alert('Data save');
+                    }
+                ],
+                [
+                    'Another btn',
+                    ['btn-warning', 'ml-10'],
+                    false,
+                    () => {
+                        alert('Data change');
+                    }
+                ],
+            ]
+        }
+    });
+});
